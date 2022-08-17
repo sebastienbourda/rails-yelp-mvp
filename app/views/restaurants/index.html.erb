@@ -1,0 +1,17 @@
+<%= render partial: "layouts/header" %>
+
+<div class="container-fluid d-flex justify-content-center flex-wrap">
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to(restaurant_path(restaurant)) do %>
+      <div class="card m-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title text-capitalize"><%= restaurant.name %></h5>
+          <h6 class="card-subtitle mb-2 text-capitalize text-muted"><%= restaurant.category %></h6>
+          <p><a href="#" class="card-link"><%= restaurant.address %></a></p>
+          <p><a href="#" class="card-link"><%= restaurant.phone_number %></a></p>
+          <%= link_to "Add a review", "#{restaurant_path(restaurant)}/reviews/new" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
