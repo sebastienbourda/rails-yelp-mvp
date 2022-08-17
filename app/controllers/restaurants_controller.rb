@@ -25,13 +25,10 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def edit; end
-
-  def update; end
-
   def destroy
     set_restaurant
     @restaurant.destroy
+    redirect_to root_path, status: :see_other
   end
 
   private
